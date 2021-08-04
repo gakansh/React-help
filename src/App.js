@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Goals from './components/goals'
 import Newhandle from './components/Newhandle/Newhandle'
 
@@ -6,15 +6,15 @@ const App = () => {
 
 
 
-  const r = [{ id: 'f1', text: "Hello" },
+  const [r, setsnap] = useState([{ id: 'f1', text: "Hello" },
   { id: 'f2', text: "Buffalo" },
-  { id: 'f3', text: "Suar" }];
+  { id: 'f3', text: "Suar" }]);
 
 
-
-  const f1= (newGoal) =>{
-    r.push(newGoal);
-    console.log(r);
+  const f1 = newGoal => {
+    // r.push(newGoal);
+    // console.log(r);
+    setsnap(r.concat(newGoal));
   };
 
   return (
@@ -22,7 +22,7 @@ const App = () => {
       <h1>Hello there</h1><br></br>
       <Goals goal={r} />
       <Newhandle nh={f1} />
-      
+
     </div>
   );
 };
